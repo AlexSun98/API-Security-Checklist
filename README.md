@@ -30,24 +30,24 @@ Checklist of the most important security countermeasures when designing,testing,
 - [ ] Validate `content-type` on request Accept header ( Content Negotiation ) to allow only your supported format (e.g. `application/xml` , `application/json` ... etc) and respond with `406 Not Acceptable` response if not matched.
 - [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded` , `multipart/form-data ,application/json` ... etc ).
 - [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection` , `Remote Code Execution` ... etc).
-- [ ] Don't use any sensetive data ( `credentials` , `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
+- [ ] Don't use any sensitive data ( `credentials` , `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
 
 ## PROCESSING
-- [ ] Check if all endpoint protected behind the authentication to avoid broken authentication.
+- [ ] Check if all endpoints are protected behind authentication to avoid broken authentication.
 - [ ] User own resource id should be avoided. Use `/me/orders` instead of `/user/654321/orders`
 - [ ] Don't use auto increment id's use `UUID` instead.
-- [ ] If you are parsing XML files , make sure entity parsing is not enable to avoid `XXE`.
+- [ ] If you are parsing XML files, make sure entity parsing is not enable to avoid `XXE`.
 - [ ] Use CDN for file uploads.
-- [ ] If you are dealing with huge amount of data , use Workers and Queues to return response fast to avoid HTTP Blocking. 
-- [ ] Do not forget and leave the DEBUG mode on.
+- [ ] If you are dealing with huge amounts of data , use Workers and Queues to return response fast to avoid HTTP Blocking. 
+- [ ] Do not forget to leave DEBUG mode on.
 
 
 ## OUTPUT
 - [ ] Send `X-Content-Type-Options: nosniff` header.
 - [ ] Send `X-Frame-Options: deny` header.
 - [ ] Force `content-type` for your response , if you return `application/json` then your response `content-type` is `application/json`.
-- [ ] Don't return sensetive data like `credentials` , `Passwords`, `security tokens`.
-- [ ] Return proper status code according to operation you done. (e.g. `200 OK` , `400 Bad Request` , `401 Unauthorized`, `405 Method Not Allowed` ... etc).
+- [ ] Don't return sensitive data like `credentials` , `Passwords`, `security tokens`.
+- [ ] Return the proper status code according to the operation you did. (e.g. `200 OK` , `400 Bad Request` , `401 Unauthorized`, `405 Method Not Allowed` ... etc).
 
 
 ------------------------------------------------------------------------------
